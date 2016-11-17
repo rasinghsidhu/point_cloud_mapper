@@ -71,11 +71,11 @@ bool PointCloudMapper::Initialize(const ros::NodeHandle& n) {
 
 bool PointCloudMapper::LoadParameters(const ros::NodeHandle& n) {
   // Load fixed frame.
-  if (!pu::Get("frame_id/fixed", fixed_frame_id_)) return false;
+  if (!pu::get("frame_id/fixed", fixed_frame_id_)) return false;
   map_data_->header.frame_id = fixed_frame_id_;
 
   // Load map parameters.
-  if (!pu::Get("map/octree_resolution", octree_resolution_)) return false;
+  if (!pu::get("map/octree_resolution", octree_resolution_)) return false;
 
   // Initialize the map octree.
   map_octree_.reset(new Octree(octree_resolution_));
